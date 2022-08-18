@@ -1,0 +1,50 @@
+package com.devsuperior.dscatalog.entities;
+
+import java.util.Objects;
+
+public class Category {
+
+	private Long idLong;
+	private String name;
+	
+	public Category() {}
+	
+	public Category(Long idLong, String name) {
+		this.idLong = idLong;
+		this.name = name;
+	}
+
+	public Long getIdLong() {
+		return idLong;
+	}
+
+	public void setIdLong(Long idLong) {
+		this.idLong = idLong;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idLong);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Category other = (Category) obj;
+		return Objects.equals(idLong, other.idLong);
+	}
+		
+}

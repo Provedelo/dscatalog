@@ -1,0 +1,6 @@
+package com.devsuperior.dscatalog.repositories;
+
+public class CategoryRepository {
+
+}
+//camada de acesso a dados, faz o CRUD no banco de dados
