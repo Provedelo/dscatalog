@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;backend/src/main/resources/import.SQL&apos; to &apos;import.sql&apos;" description="Rename resource &apos;import.SQL&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/import.SQL" name="import.sql" stamp="1661274105834" updateReferences="true"/>
+</session>

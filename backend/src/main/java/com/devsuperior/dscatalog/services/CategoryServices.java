@@ -15,7 +15,7 @@ public class CategoryServices {
 	@Autowired
 	private CategoryRepository repository; //inj de depencia do CategoryRepository
 	
-	@Transactional(readOnly = true) 
+	@Transactional(readOnly = true) //readyonly para somente leitura e ser mais rapido
 	public List<Category> findall(){
 		return repository.findAll();
 	}
