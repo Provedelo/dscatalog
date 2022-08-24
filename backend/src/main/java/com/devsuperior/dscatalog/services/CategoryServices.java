@@ -19,7 +19,7 @@ public class CategoryServices {
 	@Autowired
 	private CategoryRepository repository; //inj de depencia do CategoryRepository, ele é o obj que busca no banco de dados
 	
-	@Transactional(readOnly = true) //readyonly para somente leitura e ser mais rapido
+	@Transactional(readOnly = true) //cRud; readyonly para somente leitura e ser mais rapido
 	public List<CategoryDTO> findall(){
 		List<Category> list = repository.findAll();	
 		//resumo em expressao lamba, menos verboso
@@ -27,11 +27,19 @@ public class CategoryServices {
 		.collect(Collectors.toList());
 	}
 
-	@Transactional(readOnly = true)
+	@Transactional(readOnly = true) //cRud
 	public CategoryDTO findbyId(Long id) {
 		Optional<Category> obj = repository.findById(id); //obj optional que pode ou n ter a categoria la dentro
 		Category entity = obj.orElseThrow(() -> new EntityNotFoundException("Entity not found!")); //pega entidade no optional e retorna excessao se ocorrer erro
 		return new CategoryDTO(entity); //retorna nova categoria com a entidade
+	}
+
+	@Transactional //Crud
+	public CategoryDTO insert(CategoryDTO dto) {
+		Category entity = new Category();
+		entity.setName(dto.getName());
+		entity = repository.save(entity);
+		return new CategoryDTO(entity);		
 	}
 	
 }
@@ -41,13 +49,15 @@ public class CategoryServices {
 //@Autowired, faz injecao de dependencia automatica, instancia controlada pelo spring
 //@Transactional, garante a transacao no banco de dados,  orquestrado pela spring, faz tudo ou nada na propriedade ACID
 
-/*public List<CategoryDTO> findall(){
-List<Category> list = repository.findAll();
-List<CategoryDTO> listDTO = new ArrayList<>();
- 
-for(Category obj : list) {
-	listDTO.add(new CategoryDTO(obj));
-}
-return listDTO;
-//metodo verboso para implementação de varredura de obj de classe para classe dto
-*/
+/*
+ * public List<CategoryDTO> findall(){
+ *
+ *List<Category> list = repository.findAll();
+ *List<CategoryDTO> listDTO = new ArrayList<>();
+ * 
+ *for(Category obj : list) {
+ *	listDTO.add(new CategoryDTO(obj));
+ *}
+ *return listDTO;
+ * //metodo verboso para implementação de varredura de obj de classe para classe dto
+ */
