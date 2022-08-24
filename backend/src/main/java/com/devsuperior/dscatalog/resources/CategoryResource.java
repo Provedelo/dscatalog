@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,7 +52,13 @@ public class CategoryResource { //implementa o recurso do rest, a API controlado
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}
+	
+	@DeleteMapping(value = "/{id}") //deletando usando delete 
+	public ResponseEntity<Void> delete(@PathVariable Long id){  //corpo pode ser vazio, n tem resposta porque foi deletado
+		service.delete(id);
+		return ResponseEntity.noContent().build();
+	}
 }
 
 //classe web service rest, controladora rest/json, faz requisiçao via http
-//cod http 200 requicicao com sucesso, 201 recurso criado
+//cod http 200 requicicao com sucesso, 201 recurso criado, 204 deu certo e corpo vazio da resposta
