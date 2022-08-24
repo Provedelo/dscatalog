@@ -8,7 +8,6 @@ import com.devsuperior.dscatalog.entities.Category;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long>{
 
-	
 }
 //@Repository se for repositorio
 //para todo banco de dados relacional
