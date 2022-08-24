@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,12 @@ public class CategoryResource { //implementa o recurso do rest, a API controlado
 	public ResponseEntity<List <CategoryDTO>> findAll(){ //ResponseEntity é um obj que encapsula uma resposta http
 		List<CategoryDTO> list = service.findall();
 		return ResponseEntity.ok().body(list);		   //retorna requisiçao e corpo(e sujeito)
+	}
+	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<CategoryDTO> findById(@PathVariable Long id){
+		CategoryDTO dto = service.findbyId(id);
+		return ResponseEntity.ok().body(dto);
 	}
 }
 
