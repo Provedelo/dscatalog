@@ -1,8 +1,0 @@
-package com.devsuperior.dscatalog.repositories;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface CategoryRepository extends JpaRepository<T, ID>{
-
-}
-//camada de acesso a dados, faz o CRUD no banco de dados, sendo generico e esperando 2 parametros
