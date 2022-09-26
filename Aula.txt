@@ -1,2 +1,3 @@
 Conteudo do curso de Spring, Capitulo 1. CRUD, Camadas WEB explicadas, Tratametno de excessoes, instalaçao das ferramentas
 semeamento do BD em h2 para testes, paginaçoes e mapeamento.
+Conteudo do Cap 2: Automação de testes com JUnit 
